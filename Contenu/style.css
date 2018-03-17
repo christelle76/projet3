@@ -1,0 +1,45 @@
+
+body {
+    font-family: "Century Gothic";
+}
+
+#contenu {
+    width: 60%;
+    margin: auto;
+}
+
+#derniersArticles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.articleAccueil {
+    width: 46%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: #a1e7ad;
+    color: rgb(26, 29, 26);
+}
+
+header, footer {
+    background-color: #292929;
+    color: #ffffff;
+    display: block;
+    padding: 15px;
+}
+
+header {
+    height: 180px;
+    vertical-align: middle;
+}
+
+footer {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
