@@ -6,7 +6,7 @@ require_once('Modele/comments.php');
 
 class ArticlesController {
 
-  private $article;
+  private $articles;
   private $comments;
 
   public function __construct() {
@@ -14,10 +14,15 @@ class ArticlesController {
   }
 
   public function article($idArticle) {
-    $this->article = new Article;
+    $this->articles = new Article;
     $this->comments = new Comments;
-    $article = $this->article->getArticle($idArticle);
+    $articles = $this->articles->getArticle($idArticle);
     $comments = $this->comments->getComments($idArticle);
     require_once("View/articleView.php");
+  }
+
+  public function addArticle(){
+
+    
   }
 }

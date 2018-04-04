@@ -1,10 +1,13 @@
 
 body {
     font-family: "Century Gothic";
+    background-color: #f3f3f3;
+    margin: 0px;
 }
 
 #contenu {
     width: 60%;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -15,31 +18,138 @@ body {
 }
 
 .articleAccueil {
-    width: 46%;
-    padding: 10px;
+    width: 45%;
+    padding: 20px;
     margin-bottom: 10px;
     margin-top: 10px;
-    background-color: #a1e7ad;
+    background-color: #ffffff;
+    border: solid 1px #d3d3d3;
     color: rgb(26, 29, 26);
 }
 
+.dateArticle {
+    font-weight: bold;
+    align-content: left;
+}
+
+.contenuArticleAccueil {
+    max-height: 180px;
+    overflow: auto;
+}
+
+.articlePage {
+    background-color: #ffffff;
+    border: solid 1px #d3d3d3;
+    color: rgb(26, 29, 26);
+    padding: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comments {
+    background-color: #ffffff;
+    border: solid 1px #d3d3d3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+#addComment {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: solid 1px #d3d3d3;
+}
+
 header, footer {
-    background-color: #292929;
     color: #ffffff;
     display: block;
     padding: 15px;
+    border: solid 1px #d3d3d3;
 }
 
 header {
-    height: 180px;
-    vertical-align: middle;
+    height: 250px;
+    bottom: 50px;
+    margin: 0px;
+    text-align: center;
+    font-size: 1.4em;
+    background-image: url("Images/alaska.png");
+    font-family: 'Dancing Script', cursive;
+
+}
+
+header p {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+#blogPresentation {
+    top: 50px;
+    left: 350px;
+
 }
 
 footer {
+    background-color: #191919;
     text-align: center;
 }
 
 h1 {
     text-align: center;
-    text-transform: uppercase;
+    margin: 0px;
 }
+
+h1 a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;   
+    margin-left: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h2 a {
+    text-decoration: none;
+    color: #329ed0;
+}
+
+h3 {
+    margin-top: 0px;
+}
+
+#jean {
+    color: #329ed0;
+    font-style: italic;
+}
+
+.fas {
+    color: #329ed0;
+    display: inline;
+}
+
+.fas fa-quote-right {
+    justify-content: right;
+}
+
+.separateur {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5em;
+    color: #03405a;
+}
+
+.signaler {
+    background-color: #329ed0;
+    color: #03405a;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 10px; 
+    -webkit-appearance: none;
+}
+

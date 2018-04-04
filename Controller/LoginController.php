@@ -10,19 +10,52 @@ class LoginController {
     public function __construct(){
         
     }
+    
+    public function home() {
+        header("Location: http://localhost/projet4/index");
+        exit();
+    }
 
     public function connectAdminArea(){
-        echo "vous etes connecté";
-        require_once('View/loginResultView.php');
+        header("Location: http://localhost/projet4/index?page=admin&onglet=articles");
+        exit();
     }
 
     public function loginFailed(){
-        echo "vous n'etes pas connecté.";
-        require_once('View/loginResultView.php');
+        $result = "vous n'etes pas connecté.";
+        require_once "View/loginResultView.php";
     }
 
-    public function hashPassword($userPassword) {
-        $this->userPasswordHashed = password_hash($userPassword, PASSWORD_DEFAULT);
-        return $this->userPasswordHashed;
+    public function hashPassword($password) {
+        $userPasswordHashed = md5($password);
+        return $userPasswordHashed;
     }
-}
+
+    function loginTest($id, $password) {
+        $this->login = new Login;
+        $user = $this->login->getUser($id);
+        $isPasswordCorrect = $this->hashPassword($password) == $user['user_password'];
+
+        if($isPasswordCorrect){
+            $_SESSION['id'] = $id;
+            $_SESSION['state'] = "connected";
+            $result = $this->connectAdminArea();
+            
+        } else{
+            $result = $this->loginFailed();
+        }
+        
+    }
+
+    function sessionTest() {
+        if (isset($_SESSION['id']) && isset($_SESSION['state'])) {
+            echo "sessiontest réussi";
+        } else {
+            echo "sessiontest raté";
+            $this->home();
+        }
+    }
+
+
+
+    }

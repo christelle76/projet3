@@ -6,7 +6,7 @@
 
         protected $bdd;
         public $lastArticles;
-        public $article;
+        public $articles;
                 
         function __construct() {
             $this->bdd = new Modele();
@@ -18,8 +18,9 @@
         }
 
         public function getArticle($id) {
-            $article = $this->bdd->getBdd()->query("SELECT article_id as id, article_titre as titre, article_contenu as contenu, article_date as 'date' FROM blog_article WHERE id=" . $id . "");
-            return $article; 
+            $articles = $this->bdd->getBdd()->prepare("SELECT article_id, article_titre, article_contenu, article_date FROM blog_article WHERE article_id=" . $id . "");
+            $articles->execute();
+            return $articles;
         }
 
     }

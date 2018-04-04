@@ -1,10 +1,4 @@
 
-<?php ob_start(); ?>
-
-<div class="loginResult">
-    ...
+<div id="loginResult">
+    <p> <?= $result; ?></p>
 </div>
-
-<?php $loginResult = ob_get_clean(); ?>
-
-<?php require 'HomeTemplate.php'; ?>
