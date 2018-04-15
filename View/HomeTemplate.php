@@ -23,7 +23,7 @@
     </header>
     <div class="separateur"><i class="fab fa-pagelines"></i></div>
     <div id ="contenuArticles">
-          <?= $contenu; ?>
+          <?php echo $contenu; ?>
     </div>
     <div class="separateur"><i class="fab fa-pagelines"></i></div>
     <footer>
@@ -31,9 +31,9 @@
       <form method="post" action="index.php"> 
         <label for "pseudo"><b>Identifiant :</b></label> <input type="text" id="identifiant" name="id"/>
         <label for "password"><b>Mot de passe :</b></label> <input type="password" id="password" name="password"/>
-        <button type="submit"><b>Connexion</b></button>
+        <button type="submit" class="submit"><b>Connexion</b></button>
       </form>
-              <?php if (isset($result)){$loginResult; } else { };  ?>
+              <?php if (isset($result)){$loginResult; } else if ($_SESSION['id'] !== null){include_once('connectedView.php');}; ?>
       
     </footer>
   </div>

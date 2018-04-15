@@ -15,18 +15,18 @@
         <?php foreach($comments as $comment) : ?>
             <div class="comments">
                 <p><?= $comment['message'] ?></p>
-                <p><b>Publié par <?= $comment['author'] ?> le <?= $comment['date'] ?> <span class="signaler"><form method="post" action='index.php'><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="signaler" value="Signalez ce commentaire"></form></span></b></p>
+                <p><b>Publié par <?= $comment['author'] ?> le <?= $comment['date'] ?><form method="post" action="index.php?article=<?=$_GET["article"];?>"><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="submit" value="Signaler ce commentaire"></form>
             </div>
         <?php endforeach; ?>
     </div>
 
     <div id="addComment">
         <h3>Ajouter un commentaire:</h3>
-        <form method="post" action="index.php"> 
-            <label for "pseudo"><b>Auteur :</b></label> <input type="text" id="auteur" name="auteur"/>
-            <label for "password"><b>Message :</b></label> <input type="text" id="message" name="message"/>
+        <form method="post" action="index.php?article=<?=$_GET["article"];?>"> 
+            <label for "auteur"><b>Auteur :</b></label> <input type="text" name="auteur"/>
+            <label for "message"><b>Message :</b></label> <input type="text" name="message"/>
             <input type="hidden" name="articleId" value="<?= $_GET["article"]; ?>">
-            <button type="submit"><b>Envoyer</b></button>
+            <input type="submit" class="submit" value="Envoyer">
         </form>
     </div>
 <div>

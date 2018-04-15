@@ -13,59 +13,58 @@ $adminController = new AdminController;
 
 if (isset($_GET['page'])) {
     switch($_GET['page']){
-        case "home" : 
-            $homeController->home();
-            break;
-        case "admin" :
+         case "admin" :
             $loginController->sessionTest();
             if(isset($_GET['onglet'])){
                 switch($_GET['onglet']){
                     case "articles" :
                         $adminController->articles();
-                        if (isset($_POST["deleteArticle"])) {
-                            $adminController->deleteArticle($_POST["deleteArticle"]);
-                        } 
                         break; 
                     case "nouvelArticle" :
-                        $adminController->newArticle();
-                        if(isset($_POST['ajouterArticle'])){
-                            $adminController->newArticle($titre, $contenu, date("d-m-Y  H:i:s"));
-                        }
+                        $adminController->newArticlePage();    
+                        if (isset($_POST['titleNewArticle']) && isset($_POST['contentNewArticle'])) {
+                            $adminController->newArticle(htmlspecialchar($_POST['titleNewArticle']),htmlspecialchar($_POST['contentNewArticle']), date("Y-m-d  H:i:s"));
+                        }   
                         break;
                     case "commentaires" :
-                        $adminController->comments();
-                        if(isset($_POST['commentIdValidate'])){
-                            $adminController->validateComment($_POST['commentIdValidate']);
-                        }
-                        if(isset($_POST['commentIdDelete'])){
-                            $adminController->deleteComment($_POST['commentIdValidate']);
-                        }
-                        break;
+                        $adminController->comments();                  
+                        break; 
                     default :
                         echo "yolo";
                 } 
+            } else if(isset($_GET['modifierArticle'])){
+                $adminController->modifyArticle($_GET['modifierArticle']);
             }
-            var_dump($_GET['onglet']);
             break;
         default : 
             echo "def"; 
     }
 } else if (isset($_GET['article'])) {
-    $articlesController->article($_GET['article']);  
-    //$articlesController->addArticle(isset($_POST['']));
-    if (isset($_POST["commentId"])) {
-        $commentsController->report($_POST["commentId"]);
-    } 
-    if (isset($_POST["auteur"]) && isset($_POST["message"])) {
-        $commentsController->addComment($_POST["auteur"], $_POST["message"], date("d-m-Y  H:i:s"), $_POST["articleId"]);
-        var_dump("test ajout");
-    } 
+    $articlesController->article($_GET['article']);   
 } else {
     $homeController->home();
 }
 
 if (isset($_POST['id']) && isset($_POST['password'])) {
-    $loginController->loginTest($_POST['id'],$_POST['password']);
+    $loginController->loginTest(htmlspecialchar($_POST['id']),htmlspecialchar($_POST['password']));
+} 
+if(isset($_POST['commentIdValidate'])){
+    $adminController->validateComment(htmlspecialchar($_POST['commentIdValidate']));
+}
+if(isset($_POST['commentIdDelete'])){
+    $adminController->deleteComment(htmlspecialchar($_POST['commentIdDelete']));
+}
+if (isset($_POST["commentId"])) {
+    $commentsController->report(htmlspecialchar($_POST["commentId"]));
+} 
+if (isset($_POST["auteur"]) && isset($_POST["message"])) {
+    $commentsController->addComment(htmlspecialchar($_POST["auteur"]), htmlspecialchar($_POST["message"]), date("Y-m-d  H:i:s"), $_POST["articleId"]);
 } 
 
+if(isset($_POST['ajouterArticle'])){
+    $adminController->newArticlePage();
+}
+if (isset($_POST["deleteArticle"])) {
+    $adminController->deleteArticle(htmlspecialchar($_POST["deleteArticle"]));
+} 
 ?>

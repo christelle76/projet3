@@ -10,26 +10,27 @@ class AdminController {
 
     }
 
-    function adminPanel(){
+    function articles() { 
         $this->admin = new Admin;
-        require_once('View/adminView.php');
-    }
-
-    function articles() {
-        $this->admin = new Admin;
-        $admin = $this->admin->getArticles();
-        require_once('View/articlesAdminAreaView.php');
+        $articles = $this->admin->getArticles();
+        require_once("View/articlesAdminAreaView.php"); 
     }
 
     function deleteArticle($id) {
         $this->admin = new Admin;
-        $admin = $this->admin->deleteArticle();
+        $admin = $this->admin->deleteArticle($id);
+    }
+
+    function modifyArticle($id){
+        $this->article = new Article;
+        $articles = $this->article->getArticle($id);
+        require_once("View/modifyArticleView.php");  
     }
 
     function comments() {
         $this->admin = new Admin;
-        $admin = $this->admin->getComments();
-        require_once('View/commentsAdminAreaView.php');
+        $comments = $this->admin->getComments();
+        require_once("View/commentsAdminAreaView.php");       
     }
 
     function validateComment($id){
@@ -42,9 +43,18 @@ class AdminController {
         $admin = $this->admin->deleteComment($id);
     }
 
+    function newArticlePage() {
+        require_once("View/createArticleView.php");
+    }
+
     function newArticle($titre, $contenu, $date) {
         $this->admin = new Admin;
         $admin = $this->admin->addArticle($titre, $contenu, $date);
+    }
+
+    function updateArticle($id, $titre, $contenu, $date) {
+        $this->admin = new Admin;
+        $admin = $this->admin->updateArticle($id, $titre, $contenu, $date);
     }
 
 }

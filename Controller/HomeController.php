@@ -15,5 +15,5 @@ class HomeController {
         require_once('View/articlesView.php');
     }
 
-    
+ 
 }

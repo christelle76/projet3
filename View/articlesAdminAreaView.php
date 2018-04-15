@@ -1,30 +1,34 @@
 <?php ob_start(); ?>
-<div id="descriptionOngletAdminArea">
-    <h2>Mes articles</h2>
-    <p> ... </p>
-</div>
+<?php include('adminView.php'); ?>
 
-<div id="tableauArticlesAdminArea">
-    <table>
-        <tr> 
-            <td>Titre de l'article</td>
-            <td>Posté le</td>
-            <td>Modifier</td>
-            <td>Supprimer</td>
-        </tr>
-        <?php foreach($articles as $article) : ?>
-            <tr>
-                <td><?php $article['titre'];?></td>
-                <td><?php $article['date'];?></td>
-                <td><a href="index?page=admin;onglet=article<?php $article['id'];?>.php">Modifier cet article</a></td>
-                <td><form method="post" action='index.php'><input type="hidden" name="deleteArticle" value="<?= $article['id'] ?>"><input type="submit" class="Supprimer" value="Supprimer ce commentaire"></form></td>
+<div class="contentPage">
+    <div id="descriptionOngletAdminArea">
+        <h2>Mes articles</h2>
+        <p> ... </p>
+    </div>
+
+    <div id="tableauArticlesAdminArea">
+        <table>
+            <tr> 
+                <td class="titreColonne" class="colonneTitreArticle">Titre de l'article</td>
+                <td class="titreColonne" class="colonneDateArticle">Posté le :</td>
+                <td class="titreColonne" class="colonneModifierArticle">Modifier cet article</td>
+                <td class="titreColonne" class="colonneSupprimerArticle">Supprimer cet article</td>
             </tr>
-        <?php endforeach; ?>
-    </table>
+            <?php foreach($articles as $article) : ?>
+                <tr>
+                    <td class="colonneTitreArticle"><?php echo($article['titre']); ?></td>
+                    <td><?php echo($article['date']); ?></td>
+                    <td><a href="index?page=admin&modifierArticle=<?php echo($article['id']);?>">Modifier cet article</a></td>
+                    <td><form method="post" action='index.php'><input type="hidden" name="deleteArticle" value="<?php echo($article['id']); ?>"><input type="submit" class="submit" value="X"></form></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
 
-    <div id="CreerArticle"><a href="index?page=admin&onglet=nouvelArticle.php">Créer un article</a></div>
+        <div id="ajouterArticle"><a href="index?page=admin&onglet=nouvelArticle">Créer un article</a></div>
+    </div>
 </div>
 
-<?php $contenuAdminArea = ob_get_clean(); ?>
+<?php $contenu = ob_get_clean(); ?>
 
-<?php require_once('adminView.php'); ?>
+<?php require 'HomeTemplate.php'; ?>

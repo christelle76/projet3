@@ -1,15 +1,8 @@
 <div id="adminArea">
-    <?php echo /*$_SESSION['id'] . */" bonjour !"; ?>
+    <?php echo "Bonjour, " . $_SESSION['id'] . " !"; ?>
 </div>
 
 <div id="adminNavigation">
-    <div class="buttonNavigation"><a href="index?page=admin&onglet=articles.php">Articles</a></div>
-    <div class="buttonNavigation"><a href="index?page=admin&onglet=commentaires.php">Commentaires</a></div>
+    <div class="buttonNavigation"><a href="index?page=admin&onglet=articles">Gérer mes articles</a></div>
+    <div class="buttonNavigation"><a href="index?page=admin&onglet=commentaires">Gérer mes commentaires</a></div>
 </div>
-
-<div id="contenuAdminArea">
-    <?= $contenuAdminArea; ?>
-</div> 
-
-
-<?php require 'HomeTemplate.php'; ?>

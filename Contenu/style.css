@@ -1,6 +1,6 @@
 
 body {
-    font-family: "Century Gothic";
+    font-family: "Calibri";
     background-color: #f3f3f3;
     margin: 0px;
 }
@@ -37,7 +37,7 @@ body {
     overflow: auto;
 }
 
-.articlePage {
+.articlePage, .contentPage {
     background-color: #ffffff;
     border: solid 1px #d3d3d3;
     color: rgb(26, 29, 26);
@@ -82,6 +82,39 @@ header {
 header p {
     font-size: 1.5em;
     margin: 0;
+}
+
+#adminArea {
+    background-color: #024058;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#adminNavigation {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonNavigation {
+    width: 48%;
+    text-align: center;
+    padding: 10px;
+    background-color: #191919;
+}
+
+.buttonNavigation a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#descriptionOngletAdminArea, #ajouterArticle {
+    margin-top: 20px;
 }
 
 #blogPresentation {
@@ -144,12 +177,75 @@ h3 {
     color: #03405a;
 }
 
-.signaler {
+.submit {
     background-color: #329ed0;
-    color: #03405a;
+    color: #ffffff;
     font-weight: bold;
     padding: 6px;
-    border-radius: 10px; 
+    border-width: 0px;
+    letter-spacing: 0.1em;
     -webkit-appearance: none;
+    cursor: pointer;
 }
 
+#ajouterArticle {
+    background-color: #03405a;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 6px;
+    border-width: 0px;
+    letter-spacing: 0.2em;
+}
+
+#ajouterArticle a{
+    color: #ffffff;   
+    font-size: 1.2em; 
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    padding: 5px;
+    border: solid 1px #d3d3d3;
+}
+
+td {
+    border: solid 3px #ffffff;
+    background-color: #f7f7f7;
+    padding: 2px;
+}
+
+.titreColonne {
+    background-color:  #d3d3d3;
+    color: #191919;
+    text-align: center;
+    line-height: 1.2em;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.colonneAuteur, .colonneTitreArticle {
+    font-weight: bold;
+}
+
+.colonneCommentaire {
+    width: 40%;
+}
+
+.colonneReport {
+    width: 10%;
+}
+
+.colonneSupprimerCommentaire, .colonneValiderCommentaire {
+    width: 15%;
+}
+
+.colonneModifierArticle{
+
+}
+
+.colonneDateArticle{
+
+}

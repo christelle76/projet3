@@ -49,9 +49,8 @@ class LoginController {
 
     function sessionTest() {
         if (isset($_SESSION['id']) && isset($_SESSION['state'])) {
-            echo "sessiontest réussi";
+            
         } else {
-            echo "sessiontest raté";
             $this->home();
         }
     }

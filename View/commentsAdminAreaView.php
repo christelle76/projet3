@@ -1,31 +1,35 @@
 <?php ob_start(); ?>
-<div id="descriptionOngletAdminArea">
-    <h2>Mes commentaires</h2>
-    <p> ... </p>
-</div>
+<?php include('adminView.php'); ?>
 
-<div id="tableauArticlesAdminArea">
-    <table>
-        <tr> 
-            <td>Auteur</td>
-            <td>Contenu</td>
-            <td>Nb de report</td>
-            <td>Valider</td>
-            <td>Supprimer</td>
-        </tr>
-        <?php foreach($comments as $comment) : ?>
-            <tr>
-                <td><?php $comment['auteur'];?></td>
-                <td><?php $comment['message'];?></td>
-                <td><?php $comment['report'];?></td>
-                <td><form method="post" action='index.php'><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="Valider" value="Valider ce commentaire"></form>?></td>
-                <td><form method="post" action='index.php'><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="Supprimer" value="Supprimer ce commentaire"></form>?></td>
+<div class="contentPage">
+    <div id="descriptionOngletAdminArea">
+        <h2>Mes commentaires</h2>
+        <p>Vous pouvez administrer les commentaires affichés sur votre site. Par défaut, ceux-ci sont affichés par ordre décroissant en fonction du nombre de report. 
+        La validation d'un commentaire réinitialisera à zero le nombre de report et la suppression le supprimer définitivement. </p>
+    </div>
+
+    <div id="tableauArticlesAdminArea">
+        <table>
+            <tr> 
+                <td class="titreColonne">Auteur</td>
+                <td class="titreColonne">Contenu</td>
+                <td class="titreColonne">Nb. de report</td>
+                <td class="titreColonne">Valider ce commentaire</td>
+                <td class="titreColonne">Supprimer ce commentaire</td>
             </tr>
-        <?php endforeach; ?>
-    </table>
+            <?php foreach($comments as $comment) : ?>
+                <tr>
+                    <td class="colonneAuteur"><?php echo $comment['auteur'];?></td>
+                    <td class="colonneCommentaire"><?php echo $comment['message'];?></td>
+                    <td class="colonneReport"><?php echo $comment['report'];?></td>
+                    <td class="colonneValiderCommentaire"><form method="post" action='index.php'><input type="hidden" name="commentIdValidate" value="<?= $comment['id']; ?>"><input type="submit" class="submit" value="O"></form></td>
+                    <td class="colonneSupprimerCommentaire"><form method="post" action='index.php'><input type="hidden" name="commentIdDelete" value="<?= $comment['id']; ?>"><input type="submit" class="submit" value="X"></form></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 </div>
 
-</div>
-<?php $contenuAdminArea = ob_get_clean(); ?>
+<?php $contenu = ob_get_clean(); ?>
 
-<?php require 'adminView.php'; ?>
+<?php require 'HomeTemplate.php'; ?>

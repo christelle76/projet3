@@ -21,8 +21,5 @@ class ArticlesController {
     require_once("View/articleView.php");
   }
 
-  public function addArticle(){
 
-    
-  }
 }

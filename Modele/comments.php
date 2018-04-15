@@ -31,9 +31,9 @@
         }
 
         public function addComment($auteur, $message, $date, $articleId) {
-            $comment = $this->bdd->getBdd()->prepare("INSERT INTO blog_comment(comment_author, comment_message, comment_date, article_id) VALUES ('" . $auteur . "', '" . $message . "', '" . $date . "', '" . $articleId . "')");
+            $comment = $this->bdd->getBdd()->prepare("INSERT INTO blog_comment(comment_author, comment_message, comment_date, article_id) VALUES ('" . $auteur . "' ,'" . $message . "','" . $date . "', '" . $articleId . "')");
+            var_dump("INSERT INTO blog_comment(comment_author, comment_message, comment_date, article_id) VALUES ('" . $auteur . "' ,'" . $message . "','" . $date . "', '" . $articleId . "')");
             $comment->execute();
-            var_dump("coucou");
         }
 
         
