@@ -128,6 +128,11 @@ footer {
     text-align: center;
 }
 
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 h1 {
     text-align: center;
     margin: 0px;
@@ -160,15 +165,6 @@ h3 {
     font-style: italic;
 }
 
-.fas {
-    color: #329ed0;
-    display: inline;
-}
-
-.fas fa-quote-right {
-    justify-content: right;
-}
-
 .separateur {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -181,11 +177,16 @@ h3 {
     background-color: #329ed0;
     color: #ffffff;
     font-weight: bold;
-    padding: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     border-width: 0px;
     letter-spacing: 0.1em;
     -webkit-appearance: none;
     cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
 }
 
 #ajouterArticle {
@@ -221,7 +222,7 @@ td {
     color: #191919;
     text-align: center;
     line-height: 1.2em;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -236,16 +237,57 @@ td {
 
 .colonneReport {
     width: 10%;
+    text-align: center;
 }
 
 .colonneSupprimerCommentaire, .colonneValiderCommentaire {
     width: 15%;
+    text-align: center;
 }
 
-.colonneModifierArticle{
-
+.disconnect {
+    background-color: #191919;
+    border: 0;
+    color: #329ed0;
+    font-weight: bolder;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.colonneDateArticle{
+.avatarComment {
+    background-image: url("Images/avatar.png");
+    background-repeat: no-repeat;
+    background-position:center center;
+    width: 80px;
+}
 
+.contentComment {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.submitSignaler {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 210px;
+}
+
+.colonneTitreArticle {
+    width: 45%;
+}
+
+.colonneDateArticle {
+    width: 25%;
+}
+
+.colonneDeleteArticle, .colonneModifierArticle {
+    text-align: center;
+    width: 20%;
+}
+
+#contentNewArticle_ifr {
+    min-height: 350px;
 }

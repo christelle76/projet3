@@ -8,6 +8,7 @@
   <script src="Script/script.js"></script>
   <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <link rel="icon" type="image/png" href="Contenu/Images/favicon.png" />
   <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
 </head>
@@ -33,7 +34,7 @@
         <label for "password"><b>Mot de passe :</b></label> <input type="password" id="password" name="password"/>
         <button type="submit" class="submit"><b>Connexion</b></button>
       </form>
-              <?php if (isset($result)){$loginResult; } else if ($_SESSION['id'] !== null){include_once('connectedView.php');}; ?>
+              <?php if (isset($result)){$loginResult; } else if (!empty($_SESSION['id'])){include_once('connectedView.php');}; ?>
       
     </footer>
   </div>

@@ -2,12 +2,11 @@
 <?php include('adminView.php'); ?>
 
 <div class="contentPage">
-    <form method="post" action='index.php'>
-        <input type="text" name="titleNewArticle" placeholder="Titre de l'article" id="titleNewArticle">
+    <form method="post" action='index.php?page=admin&onglet=articles' id="formAddArticle">
+        <input type="text" name="titleNewArticle" placeholder="Titre de l'article">
         <textarea name="contentNewArticle">Ecrivez votre article...</textarea>
         <input type="submit" class="submit" name="newArticle" value="Ajouter cet article">
-    </form>
-    
+    </form>     
 </div>
 
 <?php $contenu = ob_get_clean(); ?>

@@ -5,7 +5,7 @@
     <div class="articleAccueil">
         <i class="fas fa-quote-left"></i><h2 class="titreArticle"><a href="index.php?article=<?= $article['id']; ?>"><?= $article['titre']; ?> </a></h2>
         <p class="contenuArticleAccueil"><?= substr($article['contenu'], 0, 350) . "..." ; ?></p>
-        <p class="dateArticle">Posté le <?= $article['date']; ?></p><i class="fas fa-quote-right"></i>
+        <p class="dateArticle">Posté le <?php $date = date_create($article['date']); echo date_format($date,'d-m-Y \à H:i:s');?></p><i class="fas fa-quote-right"></i>
     </div>
 <?php endforeach; ?>
 </div>

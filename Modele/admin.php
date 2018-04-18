@@ -16,7 +16,8 @@ class Admin extends Modele {
     }
 
     function addArticle($titre, $contenu, $date) {
-        $addArticle = $this->bdd->getBdd()->query("INSERT INTO blog_article (article_titre, article_contenu, article_date) VALUES (" . $titre . ", " . $contenu . ", " . $date . ")");
+        $addArticle = $this->bdd->getBdd()->prepare("INSERT INTO blog_article (article_titre, article_contenu, article_date) VALUES ('" . $titre . "' ,'" . $contenu . "','" . $date . "')");
+        $addArticle->execute();
     }
 
     function deleteArticle($id) {
@@ -24,7 +25,8 @@ class Admin extends Modele {
     }
 
     function updateArticle($id, $titre, $contenu, $date) {
-        $updateArticle = $this->bdd->getBdd()->query("UPDATE blog_article SET article_titre = " . $titre . ", article_contenu = " . $contenu . ", article_date = " . $date . " WHERE article_id = " . $id . "");
+        $updateArticle = $this->bdd->getBdd()->query("UPDATE blog_article SET article_titre = '" . $titre . "', article_contenu = '" . $contenu . "', article_date = '" . $date . "' WHERE article_id =" . $id . "");
+        var_dump($updateArticle);
     }
 
     function getComments() {

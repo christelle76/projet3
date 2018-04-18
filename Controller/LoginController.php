@@ -55,6 +55,9 @@ class LoginController {
         }
     }
 
-
-
+    function disconnect() {
+        unset($_SESSION['id']);
+        unset($_SESSION['state']);
     }
+
+}

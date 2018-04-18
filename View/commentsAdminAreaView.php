@@ -22,8 +22,8 @@
                     <td class="colonneAuteur"><?php echo $comment['auteur'];?></td>
                     <td class="colonneCommentaire"><?php echo $comment['message'];?></td>
                     <td class="colonneReport"><?php echo $comment['report'];?></td>
-                    <td class="colonneValiderCommentaire"><form method="post" action='index.php'><input type="hidden" name="commentIdValidate" value="<?= $comment['id']; ?>"><input type="submit" class="submit" value="O"></form></td>
-                    <td class="colonneSupprimerCommentaire"><form method="post" action='index.php'><input type="hidden" name="commentIdDelete" value="<?= $comment['id']; ?>"><input type="submit" class="submit" value="X"></form></td>
+                    <td class="colonneValiderCommentaire"><form method="post" action="index.php?page=admin&onglet=commentaires"><input type="hidden" name="commentIdValidate" value="<?= $comment['id']; ?>"><input type="submit" class="submit" value="✓"></form></td>
+                    <td class="colonneSupprimerCommentaire"><form method="post" action="index.php?page=admin&onglet=commentaires"><input type="hidden" name="commentIdDelete" value="<?= $comment['id']; ?>"><input type="submit" class="submit" value="✘"></form></td>
                 </tr>
             <?php endforeach; ?>
         </table>

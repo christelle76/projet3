@@ -6,17 +6,23 @@
         <?php foreach($articles as $article) : ?>
             <h2 class="titreArticle"><?= $article['article_titre']; ?></h2>
             <p><?= $article['article_contenu']; ?></p>
-            <p class="dateArticle">Posté le <?= $article['article_date']; ?></p>
+            <p class="dateArticle">Posté le <?php $datearticle = date_create($article['article_date']); echo date_format($datearticle,'d-m-Y \à H:i:s');?></p>
         <?php endforeach; ?>
         </div>
     
 
     <div id="commentContent">
         <?php foreach($comments as $comment) : ?>
-            <div class="comments">
-                <p><?= $comment['message'] ?></p>
-                <p><b>Publié par <?= $comment['author'] ?> le <?= $comment['date'] ?><form method="post" action="index.php?article=<?=$_GET["article"];?>"><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="submit" value="Signaler ce commentaire"></form>
-            </div>
+        <table class="comments">
+            <tr>
+                <td class="avatarComment"></td>
+                <td class="contentComment">
+                    <p><b>Publié par <?= $comment['author'] ?> - Le <?php $date = date_create($comment['date']); echo date_format($date,'d-m-Y \à H:i:s');?></b></p>
+                    <p><?= $comment['message'] ?></p>
+                    <div class="submitSignaler"><form method="post" action="index.php?article=<?=$_GET["article"];?>"><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="submit" value="Signaler ce commentaire"></form></div>
+                </td>
+            </tr>
+        </table>
         <?php endforeach; ?>
     </div>
 
