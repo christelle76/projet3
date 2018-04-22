@@ -12,7 +12,7 @@ class LoginController {
     }
     
     public function home() {
-        header("Location: http://localhost/projet4/index");
+        header("Location: http://localhost/projet4/index.php");
         exit();
     }
 
@@ -22,7 +22,6 @@ class LoginController {
     }
 
     public function loginFailed(){
-        $result = "vous n'etes pas connecté.";
         require_once "View/loginResultView.php";
     }
 

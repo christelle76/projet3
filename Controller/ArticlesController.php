@@ -21,5 +21,15 @@ class ArticlesController {
     require_once("View/articleView.php");
   }
 
+    function testArticleId($id){
+      $this->articles = new Article;
+      $articles = $this->articles->selectArticleId($id);
+      $num_of_rows = $articles->rowCount() ;
+      if($num_of_rows !== 0){
+        $this->article($id);
+      } else {
+        require_once("View/errorView.php");
+      }
+    }
 
 }

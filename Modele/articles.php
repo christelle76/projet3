@@ -23,4 +23,10 @@
             return $articles;
         }
 
+        function selectArticleId($id) {
+            $articles = $this->bdd->getBdd()->prepare("SELECT article_id FROM blog_article WHERE article_id=" . $id . "");
+            $articles->execute();
+            return $articles;
+        }
+
     }
