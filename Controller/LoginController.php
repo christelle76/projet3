@@ -21,12 +21,8 @@ class LoginController {
         exit();
     }
 
-    /*public function loginFailed(){
-        require_once "View/loginResultView.php";
-    }*/
-
     public function hashPassword($password) {
-        $userPasswordHashed = md5($password);
+        $userPasswordHashed = md5(md5($password));
         return $userPasswordHashed;
     }
 
@@ -39,11 +35,7 @@ class LoginController {
             $_SESSION['id'] = $id;
             $_SESSION['state'] = "connected";
             $result = $this->connectAdminArea();
-            
-        } else{
-            $result = $this->loginFailed();
-        }
-        
+        }         
     }
 
     function sessionTest() {

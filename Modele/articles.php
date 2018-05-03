@@ -18,15 +18,15 @@
         }
 
         public function getArticle($id) {
-            $articles = $this->bdd->getBdd()->prepare("SELECT article_id, article_titre, article_contenu, article_date FROM blog_article WHERE article_id=" . $id . "");
-            $articles->execute();
-            return $articles;
+            $getArticle = $this->bdd->getBdd()->prepare("SELECT article_id, article_titre, article_contenu, article_date FROM blog_article WHERE article_id= :id");
+            $getArticle->execute(array('id'=>$id));
+            return $getArticle;
         }
 
         function selectArticleId($id) {
-            $articles = $this->bdd->getBdd()->prepare("SELECT article_id FROM blog_article WHERE article_id=" . $id . "");
-            $articles->execute();
-            return $articles;
+            $selectArticleId = $this->bdd->getBdd()->prepare("SELECT article_id FROM blog_article WHERE article_id= :id");
+            $selectArticleId->execute(array('id'=>$id));
+            return $selectArticleId;
         }
 
 

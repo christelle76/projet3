@@ -43,7 +43,7 @@ class PostController {
     }
 
     function testAddComment(){
-        if (isset($_POST["auteur"]) && isset($_POST["message"])) {
+        if ((isset($_POST["auteur"]) && (!empty($_POST["auteur"]))) && (isset($_POST["message"]) && (!empty($_POST["message"])))) {
             $commentsController = new CommentsController;
             $commentsController->addComment(htmlspecialchars($_POST["auteur"]), htmlspecialchars($_POST["message"]), date("Y-m-d  H:i:s"), $_POST["articleId"]);
         } 
