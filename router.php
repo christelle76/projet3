@@ -17,39 +17,44 @@ $postController = new PostController;
 
 $postController->testLoginTest();
 $postController->testDisconnect();
-$postController->testLoginTest();
+
 
 if (isset($_GET['page'])) {
     switch($_GET['page']){
         case "admin" :
-            $loginController->sessionTest();
-            if(empty($_GET['onglet']) && empty($_GET['modifierArticle'])){
-                $errorController->error();
-            }
-            if(isset($_GET['onglet'])){
-                switch($_GET['onglet']){
-                    case "articles" :
-                        $postController->testDeleteArticle();
-                        $adminController->articles();
-                        break; 
-                    case "nouvelArticle" :
-                        $postController->testNewArticle();
-                        $adminController->newArticlePage();    
-                        break;
-                    case "commentaires" :
-                        $postController->testValidateComment();
-                        $postController->testDeleteComment();
-                        $adminController->comments();                  
-                        break; 
-                    case "":
-                        $errorController->error();
-                        break;
-                    default :
-                        $errorController->error();
-                } 
-            } else if(isset($_GET['modifierArticle'])){
-                $postController->testUpdateArticle();
-                $adminController->modifyArticle($_GET['modifierArticle']);
+            $session = $loginController->sessionTest();
+            $postController->testDeleteArticle();
+            $postController->testNewArticle();
+            $postController->testValidateComment();
+            $postController->testDeleteComment();
+            $postController->testUpdateArticle();
+   
+            if ($session == "false") {
+                $homeController->home();
+            }   else {
+                if(empty($_GET['onglet']) && empty($_GET['modifierArticle'])){
+                    $errorController->error();
+                }
+                if(isset($_GET['onglet'])){
+                    switch($_GET['onglet']){
+                        case "articles" :
+                            $adminController->articles();
+                            break; 
+                        case "nouvelArticle" :
+                            $adminController->newArticlePage();    
+                            break;
+                        case "commentaires" :
+                            $adminController->comments();                  
+                            break; 
+                        case "":
+                            $errorController->error();
+                            break;
+                        default :
+                            $errorController->error();
+                    } 
+                } else if(isset($_GET['modifierArticle'])){  
+                    $adminController->modifyArticle($_GET['modifierArticle']);
+                }
             }
             break;
         case "":
@@ -71,7 +76,5 @@ if (isset($_GET['page'])) {
 } else {
     $homeController->home();
 }
-
-
 
 ?>

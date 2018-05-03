@@ -12,18 +12,18 @@ class LoginController {
     }
     
     public function home() {
-        header("Location: http://localhost/projet4/index.php");
+        header("Location: index.php");
         exit();
     }
 
     public function connectAdminArea(){
-        header("Location: http://localhost/projet4/index?page=admin&onglet=articles");
+        header("Location: index?page=admin&onglet=articles");
         exit();
     }
 
-    public function loginFailed(){
+    /*public function loginFailed(){
         require_once "View/loginResultView.php";
-    }
+    }*/
 
     public function hashPassword($password) {
         $userPasswordHashed = md5($password);
@@ -33,7 +33,7 @@ class LoginController {
     function loginTest($id, $password) {
         $this->login = new Login;
         $user = $this->login->getUser($id);
-        $isPasswordCorrect = $this->hashPassword($password) == $user['user_password'];
+        $isPasswordCorrect = ($this->hashPassword($password) == $user['user_password']);
 
         if($isPasswordCorrect){
             $_SESSION['id'] = $id;
@@ -48,7 +48,7 @@ class LoginController {
 
     function sessionTest() {
         if (isset($_SESSION['id']) && isset($_SESSION['state'])) {
-            
+            return $session = "true";
         } else {
             $this->home();
         }

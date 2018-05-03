@@ -26,7 +26,6 @@ class Admin extends Modele {
 
     function updateArticle($id, $titre, $contenu, $date) {
         $updateArticle = $this->bdd->getBdd()->query("UPDATE blog_article SET article_titre = '" . $titre . "', article_contenu = '" . $contenu . "', article_date = '" . $date . "' WHERE article_id =" . $id . "");
-        var_dump($updateArticle);
     }
 
     function getComments() {
@@ -41,6 +40,10 @@ class Admin extends Modele {
 
     function deleteComment($id) {
         $delete = $this->bdd->getBdd()->query("DELETE FROM blog_comment WHERE comment_id =" . $id . "");
+    }
+
+    function deleteComments($id) {
+        $delete = $this->bdd->getBdd()->query("DELETE FROM blog_comment WHERE article_id =" . $id . "");
     }
 
     function validateComment($id) {

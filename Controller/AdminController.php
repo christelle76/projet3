@@ -43,6 +43,11 @@ class AdminController {
         $admin = $this->admin->deleteComment($id);
     }
 
+    function deleteComments($id){
+        $this->admin = new Admin;
+        $admin = $this->admin->deleteComments($id);
+    }
+
     function newArticlePage() {
         require_once("View/createArticleView.php");
     }

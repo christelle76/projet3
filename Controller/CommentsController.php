@@ -22,4 +22,5 @@ class CommentsController {
         $comments = $this->comments->addComment($auteur, $message, $date, $articleId);
     }
 
+
 }

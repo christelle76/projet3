@@ -6,8 +6,6 @@ require_once('LoginController.php');
 require_once('CommentsController.php');
 require_once('AdminController.php');
 
-
-
 class PostController {
 
     private $bdd;
@@ -40,7 +38,7 @@ class PostController {
     function testReport(){
         if (isset($_POST["commentId"])) {
             $commentsController = new CommentsController;
-            $commentsController->report(htmlspecialchars($_POST["commentId"]));
+            $commentsController->report($_POST["commentId"]);
         } 
     }
 
@@ -59,9 +57,9 @@ class PostController {
     }
 
     function testUpdateArticle(){
-        if(isset($_POST['titleModifyArticle']) && $_POST['contentModifyArticle']){
+        if(isset($_POST['titleModifyArticle']) && $_POST['contentModifyArticle'] && isset($_POST['modifierArticle'])){
             $adminController = new AdminController;
-            $adminController->updateArticle($_GET['modifierArticle'],$_POST['titleModifyArticle'],$_POST['contentModifyArticle'], date("Y-m-d  H:i:s"));
+            $adminController->updateArticle($_POST['modifierArticle'],$_POST['titleModifyArticle'],$_POST['contentModifyArticle'], date("Y-m-d  H:i:s"));
         }
     }
 
@@ -70,7 +68,7 @@ class PostController {
             $adminController = new AdminController;
             $commentsController = new CommentsController;
             $adminController->deleteArticle(htmlspecialchars($_POST["deleteArticle"]));
-            $commentsController->deleteComments(htmlspecialchars($_POST["deleteArticle"]));
+            $adminController->deleteComments(htmlspecialchars($_POST["deleteArticle"]));
         } 
     }
 

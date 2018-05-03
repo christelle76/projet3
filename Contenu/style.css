@@ -225,6 +225,9 @@ td {
     font-size: 1.1em;
     font-weight: bold;
     text-transform: uppercase;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 .colonneAuteur, .colonneTitreArticle {
@@ -288,6 +291,16 @@ td {
     width: 20%;
 }
 
-#contentNewArticle_ifr {
+#contentNewArticle_ifr, #contentModifyArticle_ifr {
     min-height: 350px;
+}
+
+#titreModifierArticle, #titreCreerArticle {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 4px;
+}
+
+.messageComment {
+    margin-bottom: 25px;
 }

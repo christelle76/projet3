@@ -17,9 +17,16 @@
             <tr>
                 <td class="avatarComment"></td>
                 <td class="contentComment">
-                    <p><b>Publié par <?= $comment['author'] ?> - Le <?php $date = date_create($comment['date']); echo date_format($date,'d-m-Y \à H:i:s');?></b></p>
-                    <p><?= $comment['message'] ?></p>
-                    <div class="submitSignaler"><form method="post" action="index.php?article=<?=$_GET["article"];?>"><input type="hidden" name="commentId" value="<?= $comment['id'] ?>"><input type="submit" class="submit" value="Signaler ce commentaire"></form></div>
+                    <div class="messageComment">
+                        <p><b>Publié par <?= $comment['author'] ?> - Le <?php $date = date_create($comment['date']); echo date_format($date,'d-m-Y \à H:i:s');?></b></p>
+                        <p><?= $comment['message'] ?></p>
+                    </div>
+                    <div class="submitSignaler">
+                        <form method="post" action="index.php?article=<?=$_GET["article"];?>">
+                            <input type="hidden" name="commentId" value="<?= $comment['id'] ?>">
+                            <input type="submit" class="submit" value="Signaler ce commentaire">
+                        </form>
+                    </div>
                 </td>
             </tr>
         </table>

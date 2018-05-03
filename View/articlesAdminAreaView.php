@@ -12,15 +12,15 @@
             <tr> 
                 <td class="titreColonne" class="colonneTitreArticle">Titre de l'article</td>
                 <td class="titreColonne" class="colonneDateArticle">Posté le :</td>
-                <td class="titreColonne" class="colonneModifierArticle">Modifier cet article</td>
-                <td class="titreColonne" class="colonneSupprimerArticle">Supprimer cet article</td>
+                <td class="titreColonne" class="colonneModifierArticle">Modifier</td>
+                <td class="titreColonne" class="colonneSupprimerArticle">Supprimer</td>
             </tr>
             <?php foreach($articles as $article) : ?>
                 <tr>
                     <td class="colonneTitreArticle"><?php echo($article['titre']); ?></td>
                     <td class="colonneDateArticle"><?php $date = date_create($article['date']); echo date_format($date,'d-m-Y \à H:i:s');?></td>
-                    <td class="colonneModifierArticle"><a class="submit" href="index.php?page=admin&modifierArticle=<?php echo($article['id']);?>">Modifier cet article</a></td>
-                    <td class="colonneDeleteArticle"><form method="post" action="index.php?page=admin&modifierArticle=<?php echo($article['id']);?>"><input type="hidden" name="deleteArticle" value="<?php echo($article['id']); ?>"><input type="submit" class="submit" value="✘"></form></td>
+                    <td class="colonneModifierArticle"><a class="submit" href="index.php?page=admin&modifierArticle=<?php echo($article['id']);?>">✍</a></td>
+                    <td class="colonneDeleteArticle"><form method="post" action="index.php?page=admin&onglet=articles"><input type="hidden" name="deleteArticle" value="<?php echo($article['id']);?>"><input type="submit" class="submit" value="✘"></form></td>
                 </tr>
             <?php endforeach; ?>
         </table>
@@ -30,5 +30,6 @@
 </div>
 
 <?php $contenu = ob_get_clean(); ?>
+
 
 <?php require 'HomeTemplate.php'; ?>

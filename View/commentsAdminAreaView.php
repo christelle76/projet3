@@ -14,8 +14,8 @@
                 <td class="titreColonne">Auteur</td>
                 <td class="titreColonne">Contenu</td>
                 <td class="titreColonne">Nb. de report</td>
-                <td class="titreColonne">Valider ce commentaire</td>
-                <td class="titreColonne">Supprimer ce commentaire</td>
+                <td class="titreColonne">Valider</td>
+                <td class="titreColonne">Supprimer</td>
             </tr>
             <?php foreach($comments as $comment) : ?>
                 <tr>
